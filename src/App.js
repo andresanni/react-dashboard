@@ -1,7 +1,10 @@
-import { useTheme } from "@emotion/react";
 import { ColorModeContext, useMode } from "./theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import TopBar from './scenes/global/TopBar';
+import SideBar from './scenes/global/SideBar'
+import { Route, Routes } from "react-router-dom";
+import DashBoard from "./scenes/dashboard/Dashboard";
+
 
 function App() {
 
@@ -13,8 +16,12 @@ function App() {
       <ThemeProvider theme = {theme}>
         <CssBaseline />
         <div className="app">
+          <SideBar />
           <main className = "content">
             <TopBar />
+            <Routes>
+              <Route path ="/" element = {<DashBoard />}/>
+            </Routes>
           </main>
         </div>
       </ThemeProvider>
